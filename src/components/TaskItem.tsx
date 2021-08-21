@@ -67,11 +67,20 @@ export function TaskItem({ task, toggleTaskDone, removeTask, editTask }: TasksIt
             )}
           </View>
 
-          <Text 
+          {/* <Text 
             style={task.done ? styles.taskTextDone : styles.taskText}
           >
             {task.title}
-          </Text>
+          </Text> */}
+
+          <TextInput
+            ref={textInputRef}
+            value={taskNewTitleValue}
+            onChangeText={setTaskNewTitleValue}
+            editable={isEditing}
+            onSubmitEditing={handleSubmitEditing}
+            style={task.done ? styles.taskTextDone : styles.taskText}
+          />
         </TouchableOpacity>
       </View>
 
